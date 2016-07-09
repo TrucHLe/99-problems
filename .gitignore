@@ -1,0 +1,10 @@
+target/
+.cache
+.classpath
+.project
+.settings/
+.idea
+.ensime
+.ensime_cache
+.DS_Store
+\#*
