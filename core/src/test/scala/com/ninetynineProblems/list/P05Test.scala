@@ -5,25 +5,25 @@ import org.scalatest.WordSpec
 class P05Test extends WordSpec {
   "`reverse`" should {
     "reverse a list" in {
-      val reversedList = P05.reverse(List("a", "b", "c", "d"))
-      assert(reversedList === List("d", "c", "b", "a"))
+      val reverse = P05.reverse(List("a", "b", "c", "d"))
+      assert(List("d", "c", "b", "a") === reverse)
     }
 
     "return an empty list if input is an empty list" in {
-      val reversedList = P05.reverse(List())
-      assert(reversedList === List())
+      val reverse = P05.reverse(List())
+      assert(List() === reverse)
     }
   }
 
-  "`reverseRecursion`" should {
+  "`reverseRec`" should {
     "reverse a list" in {
-      val reversedList = P05.reverseRecursion(List("a", "b", "c", "d"))
-      assert(reversedList === List("d", "c", "b", "a"))
+      val reverseRec = P05.reverseRec(List("a", "b", "c", "d"))
+      assert(List("d", "c", "b", "a") === reverseRec)
     }
 
     "return an empty list if input is an empty list" in {
-      val reversedList = P05.reverseRecursion(List())
-      assert(reversedList === List())
+      val reverseRec = P05.reverseRec(List())
+      assert(List() === reverseRec)
     }
   }
 }

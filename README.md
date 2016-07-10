@@ -18,27 +18,14 @@ This is my personal space for re-creating solutions for the [Ninety-Nine Problem
 
 ```scala
 "`last`" should {
-  "return the last element using built in `last`" in {
+  "return the last element" in {
     val last = P01.last(List("a", "b", "c", "d"))
-    assert(last === "d")
+    assert("d" === last)
   }
 
   "throw a `NoSuchelementexception` if list is empty" in {
     intercept[NoSuchElementException] {
       P01.last(List())
-    }
-  }
-}
-
-"`lastRecursion`" should {
-  "return the last element using recursive `last`" in {
-    val last = P01.lastRecursion(List("a", "b", "c", "d"))
-    assert(last === "d")
-  }
-
-  "throw a `NoSuchelementexception` if list is empty" in {
-    intercept[NoSuchElementException] {
-      P01.lastRecursion(List())
     }
   }
 }
@@ -50,12 +37,12 @@ This is my personal space for re-creating solutions for the [Ninety-Nine Problem
 "`secondLast`" should {
   "return the first element if list has 2 elements" in {
     val secondLast = P02.secondLast(List("a", "b"))
-    assert(secondLast === "a")
+    assert("a" === secondLast)
   }
 
   "return the second to last element if list has more than 2 elements" in {
-    val secondLast = P02.secondLast(List("a", "b", "c"))
-    assert(secondLast === "b")
+    val secondLast = P02.secondLast(List("a", "b", "c", "d"))
+    assert("c" === secondLast)
   }
 
   "throw a `NoSuchElementException` if list has 0 element" in {
@@ -73,30 +60,18 @@ This is my personal space for re-creating solutions for the [Ninety-Nine Problem
 ```
 
 ### [P03](https://github.com/TrucHLe/99-problems/blob/master/core/src/main/scala/com/ninetynineProblems/list/P03.scala) **(*) Find the K'th element of a list**
+The first element in the list has index 0.
 
 ```scala
 "`kth`" should {
   "return the kth element if that element exists" in {
-    val kth = P03.kth(List("a", "b", "c"), 1)
-    assert(kth === "b")
+    val kth = P03.kth(List("a", "b", "c", "d"), 1)
+    assert("b" === kth)
   }
 
   "throw an `IndexOutOfBoundsException` if that element doesn't exist" in {
     intercept[IndexOutOfBoundsException] {
-      P03.kth(List("a", "b", "c"), 3)
-    }
-  }
-}
-
-"`kthRecursion`" should {
-  "return the kth element if that element exists" in {
-    val kthRecursion = P03.kthRecursion(List("a", "b", "c"), 2)
-    assert(kthRecursion === "c")
-  }
-
-  "throw a `NoSuchElementException` if that element doesn't exist" in {
-    intercept[NoSuchElementException] {
-      P03.kthRecursion(List("a", "b", "c"), 3)
+      P03.kth(List("a", "b", "c", "d"), 4)
     }
   }
 }
@@ -107,25 +82,13 @@ This is my personal space for re-creating solutions for the [Ninety-Nine Problem
 ```scala
 "`length`" should {
   "return the length of list" in {
-    val length = P04.length(List("a", "b", "c"))
-    assert(length === 3)
+    val length = P04.length(List("a", "b", "c", "d"))
+    assert(4 === length)
   }
 
   "return 0 of list is empty" in {
     val length = P04.length(List())
-    assert(length === 0)
-  }
-}
-
-"`lengthRecursion`" should {
-  "return the length of list" in {
-    val lengthRecursion = P04.lengthRecursion(List("a", "b", "c"))
-    assert(lengthRecursion === 3)
-  }
-
-  "return 0 of list is empty" in {
-    val lengthRecursion = P04.lengthRecursion(List())
-    assert(lengthRecursion === 0)
+    assert(0 === length)
   }
 }
 ```
@@ -135,30 +98,19 @@ This is my personal space for re-creating solutions for the [Ninety-Nine Problem
 ```scala
 "`reverse`" should {
   "reverse a list" in {
-    val reversedList = P05.reverse(List("a", "b", "c", "d"))
-    assert(reversedList === List("d", "c", "b", "a"))
+    val reverse = P05.reverse(List("a", "b", "c", "d"))
+    assert(List("d", "c", "b", "a") === reverse)
   }
 
   "return an empty list if input is an empty list" in {
-    val reversedList = P05.reverse(List())
-    assert(reversedList === List())
-  }
-}
-
-"`reverseRecursion`" should {
-  "reverse a list" in {
-    val reversedList = P05.reverseRecursion(List("a", "b", "c", "d"))
-    assert(reversedList === List("d", "c", "b", "a"))
-  }
-
-  "return an empty list if input is an empty list" in {
-    val reversedList = P05.reverseRecursion(List())
-    assert(reversedList === List())
+    val reverse = P05.reverse(List())
+    assert(List() === reverse)
   }
 }
 ```
 
-### [P06](https://github.com/TrucHLe/99-problems/blob/master/core/src/main/scala/com/ninetynineProblems/list/P05.scala) **(*) Find out whether a list is a palindrome**
+### [P06](https://github.com/TrucHLe/99-problems/blob/master/core/src/main/scala/com/ninetynineProblems/list/P06.scala) **(*) Find out whether a list is a palindrome**
+A palindrome a sequence that reads the same forward as backward.
 
 ```scala
 "`isPalindrome`" should {
@@ -168,20 +120,73 @@ This is my personal space for re-creating solutions for the [Ninety-Nine Problem
   }
 
   "return `false` when the list is not a palindrome" in {
-    val isPalindrome = P06.isPalindrome(List("a", "b", "c"))
+    val isPalindrome = P06.isPalindrome(List("a", "b", "c", "d"))
     assert(!isPalindrome)
   }
 }
+```
 
-"`isPalindromeRecursion`" should {
-  "return `true` when the list is a palindrome" in {
-    val isPalindromeRecursion = P06.isPalindromeRecursion(List("a", "b", "c", "b", "a"))
-    assert(isPalindromeRecursion)
+### [P07](https://github.com/TrucHLe/99-problems/blob/master/core/src/main/scala/com/ninetynineProblems/list/P07.scala) **(\*\*) Flatten a nested list structure**
+
+```scala
+"`flatten`" should {
+  "return an empty list if input is an empty list" in {
+    val flatten = P07.flatten(List())
+    assert(flatten === List())
   }
 
-  "return `false` when the list is not a palindrome" in {
-    val isPalindromeRecursion = P06.isPalindromeRecursion(List("a", "b", "c"))
-    assert(!isPalindromeRecursion)
+  "flatten any kind of nested list of type `Any`" in {
+    val flatten = P07.flatten(List(List("a"), "b", List(List("c", "d", List("e"))), List(1, List(2, List(3, List(4, List(5)))))))
+    assert(flatten === List("a", "b", "c", "d", "e", 1, 2, 3, 4, 5))
+  }
+}
+```
+
+### [P08](https://github.com/TrucHLe/99-problems/blob/master/core/src/main/scala/com/ninetynineProblems/list/P08.scala) **(\*\*) Eliminate consecutive duplicates of list elements**
+
+```scala
+"`compress`" should {
+  "return an empty list if input list is an empty list" in {
+    val compress = P08.compress(List())
+    assert(List() === compress)
+  }
+
+  "remove consecutive duplicates in a list" in {
+    val compress = P08.compress(List("a", "a", "b", "b", "b", "c", "c", "c", "c", "d", "d", "d", "d", "d"))
+    assert(List("a", "b", "c", "d") === compress)
+  }
+
+  "not remove non-consecutive duplicates in a list" in {
+    val compress = P08.compress(List("a", "a", "b", "b", "b", "c", "c", "c", "c", "a", "a", "a", "a", "a"))
+    assert(List("a", "b", "c", "a") === compress)
+  }
+}
+```
+
+### [P09](https://github.com/TrucHLe/99-problems/blob/master/core/src/main/scala/com/ninetynineProblems/list/P09.scala) **(\*\*) Pack consecutive duplicates of list elements into sublists**
+
+```scala
+"`pack`" should {
+  "pack unique elements into sublists" in {
+    val pack = P09.pack(List("a", "b", "c", "d"))
+    assert(List(List("a"), List("b"), List("c"), List("d")) === pack)
+  }
+
+  "pack only consecutive duplicate elements into sublists" in {
+    val pack = P09.pack(List("a", "a", "b", "b", "b", "c", "c", "c", "c", "d", "d", "d", "d", "d"))
+    assert(List(List("a", "a"), List("b", "b", "b"), List("c", "c", "c", "c"), List("d", "d", "d", "d", "d")) === pack)
+  }
+}
+```
+
+### [P10](https://github.com/TrucHLe/99-problems/blob/master/core/src/main/scala/com/ninetynineProblems/list/P10.scala) **(*) Run-length encoding of a list**
+Use the result of problem [P09](https://github.com/TrucHLe/99-problems/blob/master/core/src/main/scala/com/ninetynineProblems/list/P09.scala) to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as terms [N,E] where N is the number of duplicates of the element E.
+
+```scala
+"`encode`" should {
+  "encode consecutive duplicate elements" in {
+    val encode = P10.encode(List("a", "b", "b", "b", "c", "c", "c", "c", "a", "a", "a", "a", "a"))
+    assert(List((1, "a"), (3, "b"), (4, "c"), (5, "a")) === encode)
   }
 }
 ```

@@ -5,26 +5,26 @@ import org.scalatest.WordSpec
 class P03Test extends WordSpec {
   "`kth`" should {
     "return the kth element if that element exists" in {
-      val kth = P03.kth(List("a", "b", "c"), 1)
-      assert(kth === "b")
+      val kth = P03.kth(List("a", "b", "c", "d"), 1)
+      assert("b" === kth)
     }
 
     "throw an `IndexOutOfBoundsException` if that element doesn't exist" in {
       intercept[IndexOutOfBoundsException] {
-        P03.kth(List("a", "b", "c"), 3)
+        P03.kth(List("a", "b", "c", "d"), 4)
       }
     }
   }
 
-  "`kthRecursion`" should {
+  "`kthRec`" should {
     "return the kth element if that element exists" in {
-      val kthRecursion = P03.kthRecursion(List("a", "b", "c"), 2)
-      assert(kthRecursion === "c")
+      val kthRec = P03.kthRec(List("a", "b", "c", "d"), 1)
+      assert("b" === kthRec)
     }
 
     "throw a `NoSuchElementException` if that element doesn't exist" in {
       intercept[NoSuchElementException] {
-        P03.kthRecursion(List("a", "b", "c"), 3)
+        P03.kthRec(List("a", "b", "c", "d"), 4)
       }
     }
   }

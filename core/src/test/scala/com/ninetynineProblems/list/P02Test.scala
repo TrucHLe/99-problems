@@ -6,12 +6,12 @@ class P02Test extends WordSpec {
   "`secondLast`" should {
     "return the first element if list has 2 elements" in {
       val secondLast = P02.secondLast(List("a", "b"))
-      assert(secondLast === "a")
+      assert("a" === secondLast)
     }
 
     "return the second to last element if list has more than 2 elements" in {
-      val secondLast = P02.secondLast(List("a", "b", "c"))
-      assert(secondLast === "b")
+      val secondLast = P02.secondLast(List("a", "b", "c", "d"))
+      assert("c" === secondLast)
     }
 
     "throw a `NoSuchElementException` if list has 0 element" in {

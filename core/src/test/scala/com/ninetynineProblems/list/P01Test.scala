@@ -3,11 +3,10 @@ package com.ninetynineProblems.list
 import org.scalatest.WordSpec
 
 class P01Test extends WordSpec {
-
   "`last`" should {
-    "return the last element using built in `last`" in {
+    "return the last element" in {
       val last = P01.last(List("a", "b", "c", "d"))
-      assert(last === "d")
+      assert("d" === last)
     }
 
     "throw a `NoSuchelementexception` if list is empty" in {
@@ -17,15 +16,15 @@ class P01Test extends WordSpec {
     }
   }
 
-  "`lastRecursion`" should {
-    "return the last element using recursive `last`" in {
-      val last = P01.lastRecursion(List("a", "b", "c", "d"))
-      assert(last === "d")
+  "`lastRec`" should {
+    "return the last element" in {
+      val lastRec = P01.lastRec(List("a", "b", "c", "d"))
+      assert("d" === lastRec)
     }
 
     "throw a `NoSuchelementexception` if list is empty" in {
       intercept[NoSuchElementException] {
-        P01.lastRecursion(List())
+        P01.lastRec(List())
       }
     }
   }

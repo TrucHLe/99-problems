@@ -10,20 +10,20 @@ class P06Test extends WordSpec {
     }
 
     "return `false` when the list is not a palindrome" in {
-      val isPalindrome = P06.isPalindrome(List("a", "b", "c"))
+      val isPalindrome = P06.isPalindrome(List("a", "b", "c", "d"))
       assert(!isPalindrome)
     }
   }
 
-  "`isPalindromeRecursion`" should {
+  "`isPalindromeRec`" should {
     "return `true` when the list is a palindrome" in {
-      val isPalindromeRecursion = P06.isPalindromeRecursion(List("a", "b", "c", "b", "a"))
-      assert(isPalindromeRecursion)
+      val isPalindromeRec = P06.isPalindromeRec(List("a", "b", "c", "b", "a"))
+      assert(isPalindromeRec)
     }
 
     "return `false` when the list is not a palindrome" in {
-      val isPalindromeRecursion = P06.isPalindromeRecursion(List("a", "b", "c"))
-      assert(!isPalindromeRecursion)
+      val isPalindromeRec = P06.isPalindromeRec(List("a", "b", "c", "d"))
+      assert(!isPalindromeRec)
     }
   }
 }
